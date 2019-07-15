@@ -2,7 +2,15 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint --cache --ext .js ."
+  },
+  "husky": {
+    "hooks" : {
+      "pre-commit": "yarn lint --fix",
+      "pre-push": "yarn lint",
+      "post-merge": "yarn"
+    }
   },
   "dependencies": {
     "fetch-ponyfill": "^6.1.0",
@@ -21,6 +29,7 @@
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.2"
+    "eslint-plugin-react": "^7.14.2",
+    "husky": "^3.0.0"
   }
 }
