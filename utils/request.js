@@ -1,8 +1,10 @@
-import fetch from 'fetch-ponyfill';
+import Fetch from 'fetch-ponyfill';
 
-export const get = url => fetch(url);
+const { fetch } = Fetch();
 
-export const post = (url, postData) => (
+const get = async url => fetch(url).then(res => res.json());
+
+const post = (url, postData) => (
   fetch(url, {
     method: 'post',
     headers: {
@@ -10,5 +12,10 @@ export const post = (url, postData) => (
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(postData),
-  })
+  }).then(res => res.json())
 );
+
+export {
+  get,
+  post,
+};
