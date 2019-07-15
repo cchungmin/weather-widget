@@ -7,10 +7,27 @@ import IndexComponent from '../components/index';
 
 class Index extends React.Component {
   static propTypes = {
+    forecastData: PropTypes.arrayOf(
+      PropTypes.objectOf(
+        PropTypes.oneOfType(
+          PropTypes.string,
+          PropTypes.number,
+          PropTypes.arrayOf(
+            PropTypes.string,
+            PropTypes.number,
+          ),
+          PropTypes.objectOf(
+            PropTypes.string,
+            PropTypes.number,
+          ),
+        ),
+      ),
+    ),
     fetchWeather: PropTypes.func,
   }
 
   static defaultProps = {
+    forecastData: [],
     fetchWeather: () => {},
   }
 
@@ -39,10 +56,13 @@ class Index extends React.Component {
   }
 
   render() {
-    return <IndexComponent />;
+    const { forecastData } = this.props;
+    return <IndexComponent data={forecastData} />;
   }
 }
 
-export default connect(null, {
+export default connect(({ forecastData }) => ({
+  forecastData,
+}), {
   fetchWeather: fetchWeatherAction,
 })(Index);
