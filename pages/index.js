@@ -1,16 +1,18 @@
 import React from 'react';
 
-import IndexComponent from '../components/index';
+import IndexContainer from '../containers/index';
 
 class Index extends React.Component {
-  static async getInitialProps(context) {
-    console.log('context', context);
-    return {
-    };
+  static async getInitialProps() {
+    return {};
   }
 
   render() {
-    return <IndexComponent />;
+    return (
+      <React.Fragment>
+        <IndexContainer />
+      </React.Fragment>
+    );
   }
 }
 
