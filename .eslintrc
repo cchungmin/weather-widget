@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "settings": {
+    "react": {
+      "version": "16.8"
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": 0,
+  }
+}
