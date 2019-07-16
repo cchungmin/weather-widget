@@ -43,7 +43,7 @@ class Index extends React.Component {
 
   init() {
     // Try HTML5 geolocation.
-    if (window.navigator && navigator.geolocation) {
+    if (window.navigator && window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition((position) => {
         this.setState({
           lat: position.coords.latitude,
