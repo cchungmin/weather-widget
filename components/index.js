@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import css from '../styles.scss';
+
 const Index = ({ data }) => (
-  <React.Fragment>
-    <ul>
+  <main className={css['main-container']}>
+    <ul className={css['widget-container']}>
       {
         data.map(el => (
-          <li key={el.dt}>
+          <li key={el.dt} className={css.widget}>
             {el.weather[0].description}
           </li>
         ))
       }
     </ul>
-  </React.Fragment>
+  </main>
 );
 
 Index.propTypes = {

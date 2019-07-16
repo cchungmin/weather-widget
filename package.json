@@ -6,15 +6,17 @@
     "lint": "eslint --cache --ext .js ."
   },
   "husky": {
-    "hooks" : {
+    "hooks": {
       "pre-commit": "yarn lint --fix",
       "pre-push": "yarn lint",
       "post-merge": "yarn"
     }
   },
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
     "fetch-ponyfill": "^6.1.0",
     "next": "^9.0.0",
+    "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
