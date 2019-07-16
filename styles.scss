@@ -1,3 +1,19 @@
+html,
+body,
+div,
+ul,
+li {
+  display: flex;
+}
+
+html, body {
+  flex: 1 0 100%;
+  height: 100%;
+  margin: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .main-container {
   display: flex;
 }
