@@ -7,18 +7,22 @@ import IndexComponent from '../components/index';
 
 class Index extends React.Component {
   static propTypes = {
-    forecastData: PropTypes.arrayOf(
-      PropTypes.objectOf(
-        PropTypes.oneOfType(
-          PropTypes.string,
-          PropTypes.number,
-          PropTypes.arrayOf(
+    forecastData: PropTypes.objectOf(
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.arrayOf(
+        PropTypes.objectOf(
+          PropTypes.oneOfType(
             PropTypes.string,
             PropTypes.number,
-          ),
-          PropTypes.objectOf(
-            PropTypes.string,
-            PropTypes.number,
+            PropTypes.arrayOf(
+              PropTypes.string,
+              PropTypes.number,
+            ),
+            PropTypes.objectOf(
+              PropTypes.string,
+              PropTypes.number,
+            ),
           ),
         ),
       ),

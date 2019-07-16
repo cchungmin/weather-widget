@@ -1,7 +1,7 @@
 import types from '../actions/types';
 
 export const INITIAL_STATE = {
-  forecastData: [],
+  forecastData: {},
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
