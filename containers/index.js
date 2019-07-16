@@ -35,10 +35,10 @@ class Index extends React.Component {
     this.init();
   }
 
-  fetch() {
+  async fetch() {
     const { fetchWeather } = this.props;
     const { lat, lon } = this.state;
-    fetchWeather(lat, lon);
+    await fetchWeather(lat, lon);
   }
 
   init() {
