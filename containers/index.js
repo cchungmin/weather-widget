@@ -40,6 +40,7 @@ class Index extends React.Component {
 
   state = {
     selectedFilter: '3h',
+    fetching: true,
   }
 
   componentDidMount() {
@@ -71,7 +72,9 @@ class Index extends React.Component {
   async fetch() {
     const { fetchWeather } = this.props;
     const { lat, lon } = this.state;
+    this.setState({ fetching: true });
     await fetchWeather(lat, lon);
+    this.setState({ fetching: false });
   }
 
   init() {
@@ -90,18 +93,28 @@ class Index extends React.Component {
 
   render() {
     const { forecastData } = this.props;
-    const { selectedFilter } = this.state;
+    const { selectedFilter, fetching } = this.state;
     return (
       <main className={css['main-container']}>
-        <Weather
-          data={this.getWeatherData()}
-          city={forecastData.city}
-        />
-        <Panel
-          onRadioInputChange={this.onRadioInputChange}
-          selectedFilter={selectedFilter}
-          labels={this.getDateTimeCollection()}
-        />
+        {
+          fetching ? (
+            <h1 className={css.loading}>
+              Loading weather reports...
+            </h1>
+          ) : (
+            <React.Fragment>
+              <Weather
+                data={this.getWeatherData()}
+                city={forecastData.city}
+              />
+              <Panel
+                onRadioInputChange={this.onRadioInputChange}
+                selectedFilter={selectedFilter}
+                labels={this.getDateTimeCollection()}
+              />
+            </React.Fragment>
+          )
+        }
       </main>
     );
   }
