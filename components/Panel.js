@@ -27,6 +27,7 @@ const Panel = ({
           htmlFor={`${el}-${index}`}
           key={el}
         >
+          Every&nbsp;
           {labels[el]}
           <input
             type="radio"
