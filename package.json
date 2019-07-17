@@ -1,4 +1,6 @@
 {
+  "auther": "Chung-Min Cheng",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
